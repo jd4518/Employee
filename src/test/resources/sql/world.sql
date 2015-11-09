@@ -22,7 +22,7 @@ values
 select * from member; 
 
 --Update
-update member set name='홍순이',password='9876'
+update member set name='홍순이',password='9876' where id=5;
 
 --Delete
 delete from member;
