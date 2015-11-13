@@ -45,3 +45,9 @@ select id,
 	from city
    where countrycode = 'KOR';
 	
+   select * from country
+   
+   select c.id, c.name, t.name, t.headofstate 
+   from city c inner join country t
+   		on c.countrycode = t.code
+   		where t.code = 'KOR'
