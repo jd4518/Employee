@@ -8,6 +8,7 @@ public interface DeptMapper {
 	
 	List<Dept> selectAll();
 	List<Dept> selectAllWithEmps();
+	List<Dept> selectAllWithEmps_outer();
 	
 	Dept selectByDeptno(int deptno);
 	Dept selectByDeptnoWithEmps(int deptno);
