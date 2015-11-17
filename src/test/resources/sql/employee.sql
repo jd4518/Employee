@@ -31,6 +31,7 @@ select * from city where countrycode='KOR'
 ---
 ---  inner join
 ---
+select * from dept;
 
 select 
 		d.deptno as dept_deptno,

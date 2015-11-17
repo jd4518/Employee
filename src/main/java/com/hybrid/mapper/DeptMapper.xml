@@ -81,4 +81,19 @@
         
     </select>
     
+    <insert id="insert" parameterType="com.hybrid.model.Dept">
+        insert into dept 
+        			(
+        				deptno,
+        				dname,
+        				loc
+        			)
+        			values
+        			( 
+        				#{deptno},
+        			    #{dname},
+        		        #{loc}
+        		    )
+    </insert>
+    
 </mapper>
