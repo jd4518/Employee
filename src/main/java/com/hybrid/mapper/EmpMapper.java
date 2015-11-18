@@ -10,4 +10,6 @@ public interface EmpMapper {
 	
 	Emp selectByEmpno(int empno);
 	Emp selectByEmpnoWithDept(int empno);
+	
+	int insertEmp(Emp e);
 }
