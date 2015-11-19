@@ -95,5 +95,20 @@
         		        #{loc}
         		    )
     </insert>
+    <delete id="delete" parameterType="com.hybrid.model.Dept">
+        delete from dept
+        where deptno = #{deptno}
+        
+    </delete>
+    <delete id="deleteGreateThan" parameterType="int">
+        delete from dept
+        where deptno >= #{deptno}
+        
+    </delete>
     
+    <select id="selectGreaterThan" parameterType="int" resultType="com.hybrid.model.Dept">
+        <include refid="deptFrom"/>
+        where deptno >=#{deptno}
+        
+    </select>
 </mapper>

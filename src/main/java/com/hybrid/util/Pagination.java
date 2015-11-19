@@ -15,6 +15,8 @@ public class Pagination {
 	private int lastItem;
 	private int firstPage;
 	private int lastPage;
+	private int start;
+	private int length;
 	
 	/*
 	 * read-write 
@@ -126,6 +128,13 @@ public class Pagination {
 	}
 	public boolean isLastGroup(){
 		return (lastPage == totalPage) ? true : false;
+	}
+	
+	public int getStart(){
+		return firstItem-1;
+	}
+	public int getLength(){
+		return lastItem-firstItem+1;
 	}
 	
 }

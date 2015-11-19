@@ -53,9 +53,16 @@
 
 <aop:aspectj-autoproxy/>
 <bean class="com.hybrid.aspect.LogDaoAspect"/>
-<bean class="com.hybrid.aspect.TransactionAspect"/>
+<bean class="com.hybrid.aspect.TransactionAspect">
+	<property name="dataSource" ref="oracleDataSource"></property>
+</bean>
 
 <bean class="com.hybrid.service.DeptRegisterService">
+	<property name="deptDao" ref="oracleDeptDao"/>
+	<property name="empDao" ref="oracleEmpDao"/>
+	<property name="dataSource" ref="oracleDataSource"></property>
+</bean>
+<bean class="com.hybrid.service.DeptUnRegisterService">
 	<property name="deptDao" ref="oracleDeptDao"/>
 	<property name="empDao" ref="oracleEmpDao"/>
 	<property name="dataSource" ref="oracleDataSource"></property>

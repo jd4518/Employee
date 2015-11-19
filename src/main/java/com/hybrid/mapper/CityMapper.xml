@@ -9,6 +9,16 @@
 				population
 			from city
 	</select>
+	<select id="selectPage" resultType="com.hybrid.model.City" parameterType="com.hybrid.util.Pagination">
+		select id,
+				name,
+				countrycode,
+				district,
+				population
+			from city
+			order by countrycode asc, name asc
+			limit #{start}, #{length}
+	</select>
 	<select id="selectByCountryCode" parameterType="String" resultType="com.hybrid.model.City">
 		select id,
 				name,
@@ -36,4 +46,9 @@
 			#{population}
 		)
 	</insert>
+	
+	<select id="selectCount" resultType="int">
+	    select count(*) from city
+	    
+	</select>
 </mapper>

@@ -38,4 +38,13 @@ public class EmpDao {
 		return empMapper.insertEmp(e);
 		
 	}
+	public int delete(Emp e){
+		
+		return empMapper.delete(e);
+	}
+	
+	public List<Emp> selectByDeptno(int deptno){
+		
+		return empMapper.selectByDeptno(deptno);
+	}
 }

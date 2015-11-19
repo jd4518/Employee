@@ -54,3 +54,6 @@ select
 	from emp e left outer join dept d
 	on e.deptno = d.deptno
 	
+select * from emp e inner join  dept d  on e.deptno= d.deptno
+			where d.deptno = 81
+	

@@ -51,3 +51,22 @@ select id,
    from city c inner join country t
    		on c.countrycode = t.code
    		where t.code = 'KOR'
+   		
+   		
+select id,
+	   name,
+	   countrycode,
+	   district,
+	   population
+	from city
+	order by countrycode asc, name asc
+	limit 20, 5
+	
+		select id,
+				name,
+				countrycode,
+				district,
+				population
+			from city
+			order by countrycode asc, name asc
+			limit 20,5

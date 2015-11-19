@@ -89,6 +89,18 @@
 		)
     </insert>
     
+    <delete id="delete" parameterType="com.hybrid.model.Emp">
+        delete from emp
+        where empno = #{empno}
+        
+    </delete>
+    
+    <select id="selectByDeptno" parameterType="int" resultType="com.hybrid.model.Emp">
+        <include refid="empFrom"/>
+        where deptno = #{deptno}
+        
+    </select>
+    
     
 </mapper>    
     
