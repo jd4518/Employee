@@ -5,13 +5,15 @@ import java.util.List;
 import com.hybrid.model.Emp;
 
 public interface EmpMapper {
+	
 	List<Emp> selectAll();
-	List<Emp> selectAllWithDept();
+	Emp selectByEmpno();
 	List<Emp> selectByDeptno(int deptno);
 	
-	Emp selectByEmpno(int empno);
-	Emp selectByEmpnoWithDept(int empno);
+	List<Emp> selectAllWithDept();
+	Emp selectByEmpnoWithDept();
 	
-	int insertEmp(Emp e);
-	int delete(Emp e);
+	int insert(Emp emp);
+	int delete(Emp emp);
+	
 }

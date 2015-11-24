@@ -2,57 +2,23 @@ package com.hybrid.model;
 
 import java.util.Date;
 
+import com.hybrid.exception.PasswordNotMatchingException;
+
 public class Emp {
-	private Integer deptno;
-	private Float comm;
-	private Float sal;
-	private Date hiredate;
-	private Integer mgr;
-	private String job;
-	private String ename;
 	private int empno;
-	private Dept dept;
-	public Dept getDept() {
-		return dept;
+	private String ename;
+	private String job;
+	private Integer mgr;
+	private Date hiredate;
+	private Float sal;
+	private Float comm;
+	private Dept dept;	// Has-One
+
+	public int getEmpno() {
+		return empno;
 	}
-	public void setDept(Dept dept) {
-		this.dept = dept;
-	}
-	public Integer getDeptno() {
-		return deptno;
-	}
-	public void setDeptno(Integer deptno) {
-		this.deptno = deptno;
-	}
-	public Float getComm() {
-		return comm;
-	}
-	public void setComm(Float comm) {
-		this.comm = comm;
-	}
-	public Float getSal() {
-		return sal;
-	}
-	public void setSal(Float sal) {
-		this.sal = sal;
-	}
-	public Date getHiredate() {
-		return hiredate;
-	}
-	public void setHiredate(Date hiredate) {
-		this.hiredate = hiredate;
-	}
-	public Integer getMgr() {
-		return mgr;
-	}
-	public void setMgr(Integer mgr) {
-		this.mgr = mgr;
-	}
-	public String getJob() {
-		return job;
-	}
-	public void setJob(String job) {
-		this.job = job;
+	public void setEmpno(int empno) {
+		this.empno = empno;
 	}
 	public String getEname() {
 		return ename;
@@ -60,12 +26,41 @@ public class Emp {
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
-	public int getEmpno() {
-		return empno;
+	public String getJob() {
+		return job;
 	}
-	public void setEmpno(int empno) {
-		this.empno = empno;
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public Integer getMgr() {
+		return mgr;
+	}
+	public void setMgr(Integer mgr) {
+		this.mgr = mgr;
+	}
+	public Date getHiredate() {
+		return hiredate;
+	}
+	public void setHiredate(Date hiredate) {
+		this.hiredate = hiredate;
+	}
+	public Float getSal() {
+		return sal;
+	}
+	public void setSal(Float sal) {
+		this.sal = sal;
+	}
+	public Float getComm() {
+		return comm;
+	}
+	public void setComm(Float comm) {
+		this.comm = comm;
+	}
+	public Dept getDept() {
+		return dept;
+	}
+	public void setDept(Dept dept) {
+		this.dept = dept;
 	}
 	
-		
 }

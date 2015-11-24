@@ -18,57 +18,59 @@ import org.xml.sax.SAXException;
 import com.hybrid.model.Member;
 
 public class BeanCreateTest {
-	static GenericXmlApplicationContext ctx = null;
+
 	static Log log = LogFactory.getLog(BeanCreateTest.class);
+	
+	static GenericXmlApplicationContext ctx = null;
+	
 	public static void main(String[] args) throws InterruptedException, ParserConfigurationException, SAXException, IOException {
+		
 		ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
 		
 //		test1();
 		
 		Document document = ctx.getBean(Document.class);
 		
-		Element root =  document.getDocumentElement();
+		Element root = document.getDocumentElement();
 		log.info(root.getNodeName());
-	
 		
 	}
 	
-	static void test2() throws ParserConfigurationException, SAXException, IOException{
-		ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
+	static void test2() throws ParserConfigurationException, SAXException, IOException {
+		
 		DocumentBuilderFactory f = ctx.getBean(DocumentBuilderFactory.class);
 		DocumentBuilder builder = f.newDocumentBuilder();
-		
 		ClassPathResource resource = new ClassPathResource("com/hybrid/bean/dept.xml");
-		Document document = builder.parse(resource.getInputStream()); 
-		Element root =  document.getDocumentElement();
+		
+		Document document = builder.parse(resource.getInputStream());
+		Element root = document.getDocumentElement();
 		log.info(root.getNodeName());
+		
 	}
 	
-	static void test1() throws InterruptedException{
-		ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
-		//scope를 prototype으로 설정후 시간이 달라진걸 볼 수 있다 d와 d1은 서로 다른 객체
-		Date d = ctx.getBean(Date.class);
+	static void test1() throws InterruptedException {
 		
+		Date d = ctx.getBean(Date.class);
 		log.info("date = " + d);
-
+		
 		Thread.sleep(2000);
 		
-		Date d1 = ctx.getBean(Date.class);
+		Date d2 = ctx.getBean(Date.class);
+		log.info("date = " + d2);
 		
-		log.info("date = " + d1);
-		//singleton
 		Member m = ctx.getBean(Member.class);
-		Member m1 = ctx.getBean(Member.class);
+		Member m2 = ctx.getBean(Member.class);
 		
 		m.setId(100);
-		m.setName("a");
+		m.setEmail("xxx@yyy.co.kr");
 		
-		log.info(m1.getId());
-		log.info(m1.getName());
-		
-		
+		log.info("id = " + m2.getId());
+		log.info("email = " + m2.getEmail());
 		
 		
+		
+		
+
 	}
 
 }

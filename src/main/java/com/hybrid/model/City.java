@@ -1,28 +1,21 @@
 package com.hybrid.model;
 
+import java.util.Date;
+
+import com.hybrid.exception.PasswordNotMatchingException;
+
 public class City {
-	private Integer population;
-	private String district;
-	private String countryCode;
-	private String name;
 	private int id;
-	public Integer getPopulation() {
-		return population;
+	private String name;
+	private String countryCode;
+	private String district;
+	private Integer population;
+		
+	public int getId() {
+		return id;
 	}
-	public void setPopulation(Integer population) {
-		this.population = population;
-	}
-	public String getDistrict() {
-		return district;
-	}
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-	public String getCountryCode() {
-		return countryCode;
-	}
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -30,11 +23,25 @@ public class City {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getId() {
-		return id;
+	public String getCountryCode() {
+		return countryCode;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	public Integer getPopulation() {
+		return population;
+	}
+	public void setPopulation(Integer population) {
+		this.population = population;
+	}
+	
+	
 	
 }

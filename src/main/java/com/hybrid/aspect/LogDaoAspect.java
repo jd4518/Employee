@@ -12,33 +12,36 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class LogDaoAspect {
-	static Log log = LogFactory.getLog(LogDaoAspect.class);
+//	static Log log = LogFactory.getLog(LogDaoAspect.class);
 	
 	@Pointcut("execution(public * com.hybrid.dao.*Dao.*(..))")
-	public void dao(){
+	public void dao() {
 		
-	}@Pointcut("execution(public * com.hybrid.dao.*Service.*(..))")
-	public void service(){
+	}
+	
+	@Pointcut("execution(public * com.hybrid.service.*Service.*(..))")
+	public void service() {
 		
 	}
 	
 	@Before("dao() || service()")
-	public void before(JoinPoint jp){
+	public void before(JoinPoint jp) {
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
-		log.info("###" + jp.getSignature().getName()
-					   +"("
-					   + Arrays.toString(jp.getArgs())
-					   +")"
-					   + "START");
-		
+		log.info("### " + jp.getSignature().getName()
+						+ "("
+						+ Arrays.toString(jp.getArgs())
+						+ ")"
+						+ " START");
 	}
+	
 	@After("dao() || service()")
-	public void after(JoinPoint jp){
+	public void after(JoinPoint jp) {
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
-		log.info("###" + jp.getSignature().getName()
-				   +"("
-				   + Arrays.toString(jp.getArgs())
-				   +")"
-				   + "END");
+		log.info("### " + jp.getSignature().getName()
+						+ "("
+						+ Arrays.toString(jp.getArgs())
+						+ ")"
+						+ " END");
 	}
+
 }

@@ -16,7 +16,7 @@ rem
 rem $Header: utlsampl.sql 7020100.1 94/09/23 22:14:24 cli Generic<base> $ sqlbld.sql
 rem
 SET TERMOUT OFF
-SET ECHO OFF
+SET ECHO ON
 
 rem CONGDON    Invoked in RDBMS at build time.	 29-DEC-1988
 rem OATES:     Created: 16-Feb-83

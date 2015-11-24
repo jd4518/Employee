@@ -1,0 +1,34 @@
+#
+# javascript Framework
+#
+Cross-Brower 대응
+
+1. jQuery ==> jQuery Mobile
+
+2. Extjs  ==> Sencha Touch
+
+3. Angularjs ==> MVC Framework
+
+4. Bootstrap ==> RWD(반응형 웹)
+
+#
+# URL 매핑
+#
+
+1. 정확한매핑
+	/xxx
+	/city
+	/dept/register
+2. 경로매핑
+	ex) /xxx/yyy/*
+
+3. 확장자매핑
+	ex) *.jsp
+	ex) *.do
+
+4. Default매핑
+	ex) /
+
+
+
+

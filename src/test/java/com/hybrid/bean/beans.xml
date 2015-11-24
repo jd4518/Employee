@@ -3,24 +3,26 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!-- default일때 singleton -->
-<!-- scope를 prototype으로 해주면 new처럼 여러개의 객체를 만들 수 있음  95%는 이방법을 사용-->
-<bean class="java.util.Date" scope="prototype">
+<!-- NEW 생성 95% 사용됨 -->
+<bean class="java.util.Date">
 	<property name="year" value="115"/>
-	<property name="month" value="8"/>
+	<property name="month" value="08"/>
 	<property name="date" value="10"/>
 </bean>
 
+<!-- NEW 생성 95% 사용됨 -->
 <bean class="com.hybrid.model.Member">
 </bean>
 
-<!-- factory method 생성 사용 잘사용하지 않지만  -->
+<!-- factory method 생성 1% 사용됨 -->
 <bean id="documentBuilderFactory" class="javax.xml.parsers.DocumentBuilderFactory" factory-method="newInstance">
+
 </bean>
 
+<!-- FactoryBean 생성 3% 사용됨 -->
 <bean class="com.hybrid.bean.DocumentFactoryBean">
 	<constructor-arg ref="documentBuilderFactory"/>
-	<property name="path" value="com/hybrid/bean/beans.xml"/>
+	<property name="path" value="com/hybrid/bean/dept.xml"/>
 </bean>
 
 

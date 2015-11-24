@@ -14,44 +14,52 @@ public class DeptDao {
 	
 	DeptMapper mapper;
 	
-	public void setDeptMapper(DeptMapper mapper){
+	public void setDeptMapper(DeptMapper mapper) {
 		this.mapper = mapper;
 	}
 	
-	public List<Dept> selectAll(){
-		log.info("dept size = " + mapper.selectAll().size());
-		return mapper.selectAll();
+	public List<Dept> selectAll() {
+		List<Dept> list = mapper.selectAll();
+		log.info("Dept size = " + list.size());
+		return list;
 	}
-	public List<Dept> selectAllWithEmps(){
-		log.info("dept size = " + mapper.selectAllWithEmps().size());
-		return mapper.selectAllWithEmps();
+	public List<Dept> selectAllWithEmps() {
+		List<Dept> list = mapper.selectAllWithEmps();
+		log.info("Dept size = " + list.size());
+		return list;
 	}
 	
-	public Dept selectByDeptno(int deptno){
+	public Dept selectByDeptno(int deptno) {
+		
 		return mapper.selectByDeptno(deptno);
 		
 	}
-	public Dept seelctByDeptnoWithEmps(int deptno){
+	public Dept selectByDeptnoWithEmps(int deptno) {
+		
 		return mapper.selectByDeptnoWithEmps(deptno);
 	}
 	
-	public int insert(Dept dept){
-		
+	public int insert(Dept dept) {
 		return mapper.insert(dept);
 	}
 	
-	public int delete(Dept dept){
-		
+	public int delete(Dept dept) {
 		return mapper.delete(dept);
 	}
 	
-	public int deleteGreaterThan(int deptno){
-		
-		return mapper.deleteGreateThan(deptno);
-	}
-	
-	public List<Dept> selectGreaterThan(int deptno){
-		
+	public List<Dept> selectGreaterThan(int deptno) {
 		return mapper.selectGreaterThan(deptno);
 	}
+	
+	public int deleteGreaterThan(int deptno) {
+		return mapper.deleteGreaterThan(deptno);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

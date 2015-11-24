@@ -1,88 +1,103 @@
 package com.hybrid.util;
 
 public class Pagination {
+
 	/*
-	 * read-write 
+	 * read-write
 	 */
-	private int totalItem;
-	private int pageNo;
+	private int totalItem;	// select count(*) from city
+	private int pageNo;		// request Parameter pageNo
 	
 	/*
-	 * read-only 
+	 * read-only
 	 */
 	private int totalPage;
 	private int firstItem;
 	private int lastItem;
 	private int firstPage;
 	private int lastPage;
-	private int start;
-	private int length;
 	
 	/*
-	 * read-write 
+	 * read-write
 	 */
 	private int itemsPerPage = 10;
-	private int PagesPerGroup = 10;
+	private int pagesPerGroup = 10;
 	
-	public void calculate(){
-		/*
-		 * pageNo validation 
-		 */
-		if(pageNo <1)
-			pageNo=1;
-		
-		
+	public void calculate() {
 		
 		/*
-		 * totalPage 
+		 * pageNo validation
 		 */
-		this.totalPage = totalItem / itemsPerPage;
-		if(this.totalItem%itemsPerPage>0){
+		if (pageNo < 1)
+			pageNo = 1;
+		
+		/*
+		 * totalPage
+		 */
+		// 4079 / 10 = 407    
+		// 4079 % 10 > 0 407++  ==> 408
+		totalPage = totalItem / itemsPerPage;
+		if (totalItem % itemsPerPage > 0)
 			totalPage++;
-		}
-		/*
-		 * pageNo validation 
-		 */
-		if(pageNo>totalPage){
-			pageNo = (totalPage ==0) ? 1 : totalPage;
-		}
-		
-		/*
-		 * firstItem 
-		 */
-		
-		firstItem = (pageNo-1)*itemsPerPage+1;
-		
-		lastItem = firstItem + itemsPerPage -1 ;
-		
-			if(lastItem > totalItem){
-				lastItem = totalItem;
-			}
 
-
-			
+		/*
+		 * pageNo validation
+		 */
+		if (pageNo > totalPage)
+			pageNo = (totalPage == 0) ?  1 : totalPage;
+		
+		/*
+		 * firstItem
+		 */
+		// (1 - 1) * 10 + 1 = 1      ==> 1
+		// (5 - 1) * 10 + 1 = 41     ==> 41
+		firstItem = (pageNo - 1) * itemsPerPage + 1;
+		
+		/*
+		 * lastItem
+		 */
+		//firstItem= 4071
+		//lastItem = 4079
+		//
+		// lastItem = 4071 + 10 - 1 = 4080
+		lastItem = firstItem + itemsPerPage - 1;
+		if (lastItem > totalItem)
+			lastItem = totalItem;
+		
 		/*
 		 * firstPage 
 		 */
-			
-	    firstPage = (pageNo -1)/ PagesPerGroup * PagesPerGroup +1;
-			
-
-	    /*
-		 * lastPage 
+		// pageNo = 5   ==> firstPage = 1
+		// (5-1)/10*10 + 1 = 1
+		// (16-1)/10*10 + 1 = 11
+		// (408-1)/10*10 + 1 = 401
+		firstPage = (pageNo - 1) / pagesPerGroup * pagesPerGroup + 1;
+		
+		/*
+		 * lastPage
 		 */
-	    
-	    lastPage = firstPage + (PagesPerGroup-1);
-	    if(lastPage >totalPage){
-	    	lastPage=totalPage;
-	    }
+		lastPage = firstPage + (pagesPerGroup - 1);
+		if (lastPage > totalPage)
+			lastPage = totalPage;
+		
+		
 	}
 	
 	public int getTotalItem() {
 		return totalItem;
 	}
+	public void setTotalItem(int totalItem) {
+		this.totalItem = totalItem;
+		/*
+		 * 유도 변수들을 계산한다.
+		 */
+		calculate();
+	}
 	public int getPageNo() {
 		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
 	}
 	public int getTotalPage() {
 		return totalPage;
@@ -102,39 +117,34 @@ public class Pagination {
 	public int getItemsPerPage() {
 		return itemsPerPage;
 	}
-	public int getPagesPerGroup() {
-		return PagesPerGroup;
-	}
-	public void setTotalItem(int totalItem) {
-		this.totalItem = totalItem;
-		
-		/*
-		 *  유도 변수들을 계산한다
-		 */
-		calculate();
-	}
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
 	public void setItemsPerPage(int itemsPerPage) {
 		this.itemsPerPage = itemsPerPage;
 	}
-	public void setPagesPerGroup(int pagesPerGroup) {
-		PagesPerGroup = pagesPerGroup;
+	public int getPagesPerGroup() {
+		return pagesPerGroup;
 	}
-	public boolean isFirstGroup(){
-		
+	public void setPagesPerGroup(int pagesPerGroup) {
+		this.pagesPerGroup = pagesPerGroup;
+	}
+	public boolean isFirstGroup() {
 		return (firstPage == 1) ? true : false;
 	}
-	public boolean isLastGroup(){
+	public boolean isLastGroup() {
 		return (lastPage == totalPage) ? true : false;
 	}
 	
-	public int getStart(){
-		return firstItem-1;
+	public int getStart() {
+		return firstItem - 1;
 	}
-	public int getLength(){
-		return lastItem-firstItem+1;
+	
+	public int getLength() {
+		return lastItem - firstItem + 1;
 	}
+	
+	
+	
+	
+	
+	
 	
 }

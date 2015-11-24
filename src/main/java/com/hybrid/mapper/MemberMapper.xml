@@ -3,18 +3,19 @@
 <mapper namespace="com.hybrid.mapper.MemberMapper">
     <select id="selectAll" resultType="com.hybrid.model.Member">
         select id,
-        		email,
-        		name,
-        		password,
-        		register_date
-       	from member
+        	   email,
+        	   name,
+        	   password,
+        	   register_date
+          from member
     </select>
-    <insert id="insert"></insert>
-    
-    <update id="udpate"></update>
-    
-    <delete id="delete"></delete>
-    
-    
-    
+    <insert id="insert">
+        
+    </insert>
+    <update id="update">
+        
+    </update>
+    <delete id="delete">
+        
+    </delete>
 </mapper>

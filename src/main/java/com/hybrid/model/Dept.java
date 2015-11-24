@@ -1,23 +1,21 @@
 package com.hybrid.model;
 
+import java.util.Date;
 import java.util.List;
 
+import com.hybrid.exception.PasswordNotMatchingException;
+
 public class Dept {
-	private String loc;
+	private int deptno;
 	private String dname;
-	private Integer deptno;
-	private List<Emp> emps;
-	public List<Emp> getEmps() {
-		return emps;
+	private String loc;
+	private List<Emp> emps; // Has-Many
+	
+	public int getDeptno() {
+		return deptno;
 	}
-	public void setEmps(List<Emp> emps) {
-		this.emps = emps;
-	}
-	public String getLoc() {
-		return loc;
-	}
-	public void setLoc(String loc) {
-		this.loc = loc;
+	public void setDeptno(int deptno) {
+		this.deptno = deptno;
 	}
 	public String getDname() {
 		return dname;
@@ -25,11 +23,19 @@ public class Dept {
 	public void setDname(String dname) {
 		this.dname = dname;
 	}
-	public Integer getDeptno() {
-		return deptno;
+	public String getLoc() {
+		return loc;
 	}
-	public void setDeptno(Integer deptno) {
-		this.deptno = deptno;
+	public void setLoc(String loc) {
+		this.loc = loc;
 	}
+	
+	public List<Emp> getEmps() {
+		return emps;
+	}
+	public void setEmps(List<Emp> emps) {
+		this.emps = emps;
+	}
+	
 	
 }

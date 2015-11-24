@@ -5,18 +5,18 @@ import java.util.function.Consumer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.hybrid.model.City;
 
 public class CityMapperTest {
-	
+
 	static Log log = LogFactory.getLog(CityMapperTest.class);
 	
 	public static void main(String[] args) {
-		
-		GenericXmlApplicationContext ctx = null;
-		
+	
+		GenericXmlApplicationContext ctx=null;
 		ctx = new GenericXmlApplicationContext("spring/beans_dao.xml");
 		
 		CityMapper cityMapper = ctx.getBean(CityMapper.class);
@@ -28,11 +28,12 @@ public class CityMapperTest {
 
 			@Override
 			public void accept(City t) {
-				log.info(t.getName());
-				
+				log.info("name = " + t.getName());
 			}
+			
 		});
 		
 		ctx.close();
 	}
+
 }

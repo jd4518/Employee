@@ -16,16 +16,17 @@ public class DeptUnRegisterServiceTest {
 	static Log log = LogFactory.getLog(DeptUnRegisterServiceTest.class);
 	
 	public static void main(String[] args) {
-			GenericXmlApplicationContext ctx = null;
-			ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
-			
-			DeptUnRegisterService service = ctx.getBean(DeptUnRegisterService.class);
-				
-			Dept dept = new Dept();
-			dept.setDeptno(80);
-			
-			service.unregist(80);
-//			service.unregist(dept);
+		GenericXmlApplicationContext ctx=null;
+		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
+		
+		DeptUnRegisterService service = ctx.getBean(DeptUnRegisterService.class);
+
+		Dept dept = new Dept();
+		dept.setDeptno(71);
+		
+//		service.unregist(dept);
+		service.unregist(70);
+		
 	}
 
 }

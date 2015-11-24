@@ -14,47 +14,36 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 @Aspect
 public class TransactionAspect {
-
+	
 	static Log log = LogFactory.getLog(TransactionAspect.class);
 	
-	DataSource datasource;
+	DataSource dataSource;
 	
-	public void setDataSource(DataSource dataSource){
-		this.datasource = dataSource;
+	public void setDataSource(DataSource ds) {
+		this.dataSource = ds;
 	}
 	
-	
 	@Around("execution(public * com.hybrid.service.*Service.*(..))")
-	public Object around(ProceedingJoinPoint pjp) throws Throwable{
-		//before
-//		log.info("### before");
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		
-		DataSourceTransactionManager tm = new DataSourceTransactionManager(datasource);
-		
+		DataSourceTransactionManager tm = new DataSourceTransactionManager(dataSource);
 		TransactionDefinition td = new DefaultTransactionDefinition();
 		TransactionStatus ts = tm.getTransaction(td);
 		log.info("### transaction start");
-		Object rtn = null;
-		try{
-		 rtn = pjp.proceed();
-		 //afterReturnning
-		 tm.commit(ts);
-		 log.info("### commit");
-		}catch(Throwable t){
-			//afterThrowing
+		Object rtn=null;
+		try {
+			rtn = pjp.proceed();
+			tm.commit(ts);
+			log.info("### commit");
+		} catch (Throwable t) {
 			tm.rollback(ts);
 			log.info("### rollback");
 			throw t;
-		}finally{
-			//after
-//			log.info("### after");
+		} finally {
+			
 		}
-		
-		
-
-		
 		
 		return rtn;
 	}
-	
+
 }

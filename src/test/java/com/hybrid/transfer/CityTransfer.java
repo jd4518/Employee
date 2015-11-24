@@ -1,5 +1,6 @@
 package com.hybrid.transfer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -10,38 +11,55 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.hybrid.mapper.CityMapper;
 import com.hybrid.model.City;
+import com.hybrid.util.Pagination;
 
 public class CityTransfer {
-	
+
 	static Log log = LogFactory.getLog(CityTransfer.class);
+	
 	public static void main(String[] args) {
 		
-		GenericXmlApplicationContext ctx = null;
-		ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml",
+		GenericXmlApplicationContext ctx=null;
+		ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml", 
 											   "spring/beans_oracle.xml");
-		
-//		mapper 대신 mybatis 방식
-//		SqlSessionTemplate sqlSession = (SqlSessionTemplate) ctx.getBean("mysqlSession");
-//		
-//		List<City> list = sqlSession.selectList("com.hybrid.mapper.CityMapper.selectAll()");
-		
-		
+		/*
+		 * Mysql ==> Oracle
+		 */
 		CityMapper mysqlCityMapper = (CityMapper) ctx.getBean("mysqlCityMapper");
 		CityMapper oracleCityMapper = (CityMapper) ctx.getBean("oracleCityMapper");
 		
-		List<City> list = mysqlCityMapper.selectAll();
+		int deleteCount = oracleCityMapper.deleteAll();
+		log.info("Oracle City Delete Count = " + deleteCount);
 		
-		log.info("city size = "+ list.size());
+		List<City> list = mysqlCityMapper.selectAll();
+//		Pagination paging = new Pagination();
+//		paging.setTotalItem(4079);
+//		paging.setPageNo(2);
+//		List<City> list = mysqlCityMapper.selectPage(paging);
+		
+		log.info("city size = " + list.size());
+		
+		System.out.println();
 		
 		list.forEach(new Consumer<City>() {
 
 			@Override
 			public void accept(City t) {
-				oracleCityMapper.insert(t);
+				System.out.print(".");
+				System.out.flush();
+				int rtn = oracleCityMapper.insert(t);
+				log.info("rtn = " + rtn);
 			}
 		});
 		
+		int cityCount = oracleCityMapper.selectCount();
+		log.info("Oracle City Total Count = " + cityCount);
+		
 		ctx.close();
+		
+		List<String> xx;
+		
+
 	}
 
 }

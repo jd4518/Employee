@@ -4145,7 +4145,7 @@ CREATE TABLE `Country` (
   `Capital` int(11) DEFAULT NULL,
   `Code2` char(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`Code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf-8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4406,7 +4406,7 @@ CREATE TABLE `CountryLanguage` (
   `IsOfficial` enum('T','F') NOT NULL DEFAULT 'F',
   `Percentage` float(4,1) NOT NULL DEFAULT '0.0',
   PRIMARY KEY (`CountryCode`,`Language`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf-8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
