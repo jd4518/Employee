@@ -62,6 +62,7 @@ select id,
 	   district,
 	   population
   from city
+<<<<<<< HEAD
  where countrycode = 'web' 
  
 insert into city
@@ -79,6 +80,9 @@ values
 	1000000
 )
  
+=======
+ where countrycode = 'USA' 
+>>>>>>> 8dca50d163574cb3075e6c68966ec18d2a0e726e
   
 --
 -- Country

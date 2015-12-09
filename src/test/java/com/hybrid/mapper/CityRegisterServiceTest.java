@@ -1,4 +1,4 @@
-package com.hybrid.service;
+package com.hybrid.mapper;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +12,7 @@ import com.hybrid.exception.CityRegisterException;
 import com.hybrid.model.City;
 import com.hybrid.model.Dept;
 import com.hybrid.model.Emp;
+import com.hybrid.service.CityRegisterService;
 
 public class CityRegisterServiceTest {
 

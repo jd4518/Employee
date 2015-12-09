@@ -28,6 +28,13 @@
 </script>
 </head>
 <body data-ng-controller="mainController" class="container">
+<html lang="ko">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>template.jsp</title>
+</head>
+<body>
 
 </body>
 </html>
