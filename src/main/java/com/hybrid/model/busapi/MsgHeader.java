@@ -1,9 +1,10 @@
 package com.hybrid.model.busapi;
 
 public class MsgHeader {
-	private String headerCd;
-	private String headerMsg;
-	private Integer itemCount;
+	String headerCd;
+	String headerMsg;
+	Integer itemCount;
+	
 	public String getHeaderCd() {
 		return headerCd;
 	}
@@ -22,5 +23,9 @@ public class MsgHeader {
 	public void setItemCount(Integer itemCount) {
 		this.itemCount = itemCount;
 	}
+	
+	
+
+	
 	
 }

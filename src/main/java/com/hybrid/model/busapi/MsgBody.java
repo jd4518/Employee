@@ -14,5 +14,4 @@ public class MsgBody {
 		this.itemList = itemList;
 	}
 	
-	
 }

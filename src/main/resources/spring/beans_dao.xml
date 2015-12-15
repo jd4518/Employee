@@ -4,10 +4,14 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
@@ -21,9 +25,6 @@
 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="dataSource"/>
 </bean>
-
-
-<context:property-placeholder location="classpath:database/db.properties"/>
 
 <!-- DataSource -->
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -53,11 +54,6 @@
 <!-- 			<value>classpath:com/hybrid/mapper/MemberMapper.xml</value> -->
 <!-- 		</list> -->
 <!-- 	</property> -->
-	<property name="mapperLocations">
-		<list>
-			<value>classpath:com/hybrid/mapper/MemberMapper.xml</value>
-		</list>
-	</property>
 </bean>
 
 <!-- SqlSessionTemplate -->
@@ -80,13 +76,5 @@
 <bean id="cityDao" class="com.hybrid.dao.CityDao">
 	<property name="cityMapper" ref="cityMapper"/>
 </bean>
-
-
-<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
-	<property name="mapperInterface" value="com.hybrid.mapper.CityMapper"/>
-	<property name="sqlSessionTemplate" ref="sqlSession"/>
-</bean>
-
-
 
 </beans>

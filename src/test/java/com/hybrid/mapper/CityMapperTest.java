@@ -5,11 +5,13 @@ import java.util.function.Consumer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.hybrid.model.City;
 
 public class CityMapperTest {
+
 	static Log log = LogFactory.getLog(CityMapperTest.class);
 	
 	public static void main(String[] args) {

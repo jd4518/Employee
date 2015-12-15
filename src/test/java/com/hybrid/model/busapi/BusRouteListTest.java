@@ -5,7 +5,9 @@ import java.net.URLDecoder;
 import org.springframework.web.client.RestTemplate;
 
 public class BusRouteListTest {
+
 	public static void main(String[] args) {
+
 		RestTemplate rest = new RestTemplate();
 		
 		String url = "http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList?strSrch={strSrch}&serviceKey={serviceKey}";
@@ -20,4 +22,5 @@ public class BusRouteListTest {
 		System.out.println(result.getMsgBody().getItemList().get(0).getBusRouteId());
 		
 	}
+
 }

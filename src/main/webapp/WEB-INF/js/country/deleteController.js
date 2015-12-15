@@ -12,11 +12,12 @@ app.config(function($routeProvider) {
 	
 });
 
-app.controller('deleteController', function($scope, $http,$location, URL) {
+app.controller('deleteController', function($scope, $http, URL) {
 	console.log("deleteController...");
 	console.log("URL.DELETE_ITEM_DELETE_BASE = " + URL.DELETE_ITEM_DELETE_BASE);
 	
 	$scope.$parent.title = "Delete City View";
+	
 	
 	
 });

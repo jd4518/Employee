@@ -1,18 +1,20 @@
 package com.hybrid.model.busapi;
 
 public class BusRouteItemList {
-	private String busRouteId;
-	private String busRouteNm;
-	private String corpNm;
-	private String edStationNm;
-	private String firstBusTm;
-	private String firstLowTm;
-	private String lastBusYn;
-	private String lastLowTm;
-	private String length;
-	private String stStationNm;
-	private String routeType;
-	private String term;
+	String busRouteId;
+	String busRouteNm;
+	String corpNm;
+	String edStationNm;
+	String firstBusTm;
+	String firstLowTm;
+	String lastBusTm;
+	String lastBusYn;
+	String lastLowTm;
+	String length;
+	String routeType;
+	String stStationNm;
+	String term;
+	
 	public String getBusRouteId() {
 		return busRouteId;
 	}
@@ -49,6 +51,12 @@ public class BusRouteItemList {
 	public void setFirstLowTm(String firstLowTm) {
 		this.firstLowTm = firstLowTm;
 	}
+	public String getLastBusTm() {
+		return lastBusTm;
+	}
+	public void setLastBusTm(String lastBusTm) {
+		this.lastBusTm = lastBusTm;
+	}
 	public String getLastBusYn() {
 		return lastBusYn;
 	}
@@ -67,17 +75,17 @@ public class BusRouteItemList {
 	public void setLength(String length) {
 		this.length = length;
 	}
-	public String getStStationNm() {
-		return stStationNm;
-	}
-	public void setStStationNm(String stStationNm) {
-		this.stStationNm = stStationNm;
-	}
 	public String getRouteType() {
 		return routeType;
 	}
 	public void setRouteType(String routeType) {
 		this.routeType = routeType;
+	}
+	public String getStStationNm() {
+		return stStationNm;
+	}
+	public void setStStationNm(String stStationNm) {
+		this.stStationNm = stStationNm;
 	}
 	public String getTerm() {
 		return term;
@@ -85,6 +93,5 @@ public class BusRouteItemList {
 	public void setTerm(String term) {
 		this.term = term;
 	}
-	
 	
 }

@@ -19,8 +19,8 @@ public class BusRouteListController {
 	
 	@RequestMapping("/getBusRouteList/{strSrch}")
 	@ResponseBody
-	public ServiceResult getBusRouteList(@PathVariable String strSrch){
-		log.info("getBusRouteList()... strSrch = " + strSrch);
+	public ServiceResult getBusRouteList(@PathVariable String strSrch) {
+		log.info("getBusRouteList().. strSrch=" + strSrch);
 		
 		RestTemplate rest = new RestTemplate();
 		
@@ -28,7 +28,8 @@ public class BusRouteListController {
 		String serviceKey = URLDecoder.decode("AaxqTg02PVW%2BZhaIkh4fVAIiknK6EU6ZkfT1lQEHEo2PRlldpzfhjoBwE63YKQGpiY4JdZCjCktTW2yatRX%2FgA%3D%3D");
 		
 		ServiceResult result = rest.getForObject(url, ServiceResult.class, strSrch, serviceKey);
-		
+				
 		return result;
 	}
+
 }

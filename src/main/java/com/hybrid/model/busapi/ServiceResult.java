@@ -4,12 +4,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="ServiceResult")
-@XmlType(propOrder={"msgHeader","msgBody"})
+@XmlType(propOrder={"msgHeader", "msgBody"})
 public class ServiceResult {
-	
+
 	MsgHeader msgHeader;
 	MsgBody msgBody;
-	
+
 	public MsgHeader getMsgHeader() {
 		return msgHeader;
 	}
@@ -25,6 +25,7 @@ public class ServiceResult {
 	public void setMsgBody(MsgBody msgBody) {
 		this.msgBody = msgBody;
 	}
+	
 	
 	
 }

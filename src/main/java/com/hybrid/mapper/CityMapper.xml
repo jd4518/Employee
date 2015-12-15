@@ -78,7 +78,7 @@
         </selectKey>
         insert into city
 		(
-			id, 
+			id,
 			name, 
 			countrycode, 
 			district, 
@@ -91,10 +91,6 @@
 			#{countryCode, jdbcType=VARCHAR},
 			#{district, jdbcType=VARCHAR},
 			#{population, jdbcType=NUMERIC}
-			#{name},
-			#{countryCode},
-			#{district},
-			#{population}
 		)
     </insert>
     <delete id="deleteAll">
