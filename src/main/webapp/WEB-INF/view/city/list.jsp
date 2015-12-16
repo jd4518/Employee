@@ -18,7 +18,13 @@
 		</li>
 		<li><a href="" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
 	</ul>
-	
+	<uib-pagination total-items="paging.totalItem" 
+					ng-model="paging.pageNo"
+					num-pages="smallnumPages" 
+					ng-change="pageChanged()"
+					
+					>
+	</uib-pagination>
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr><td><a href="#/append" class="btn btn-primary">Append</a></td></tr>
