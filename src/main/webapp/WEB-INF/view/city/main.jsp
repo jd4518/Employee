@@ -29,8 +29,8 @@
 
 	var urls = {
 			GET_LIST : 					"${URL_GET_LIST}",
-			GET_PAGE_BASE : 			"${URL_GET_PAGE_BASE}",
 			GET_ITEM_BASE :				"${URL_GET_ITEM_BASE}",
+			GET_PAGE_BASE : 			"${URL_GET_PAGE_BASE}",
 			
 			POST_LIST_APPEND :			"${URL_POST_LIST_APPEND}",
 			POST_ITEM_APPEND :			"${URL_POST_ITEM_APPEND}",

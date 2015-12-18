@@ -31,6 +31,8 @@
 <mvc:resources location="/WEB-INF/node_modules/ngmap/" mapping="/ngmap/**"/>
 
 <mvc:resources location="/WEB-INF/node_modules/bootstrap/" mapping="/bootstrap/**"/>
+<mvc:resources location="/WEB-INF/node_modules/font-awesome/" mapping="/font-awesome/**"/>
+<mvc:resources location="/WEB-INF/node_modules/metismenu/" mapping="/metismenu/**"/>
 <mvc:resources location="/WEB-INF/node_modules/jquery/" mapping="/jquery/**"/>
 
 

@@ -13,6 +13,8 @@ public interface CityMapper {
 	List<City> selectByCountryCode(String countryCode);
 	
 	int insert(City city);
+	int update(City city);
+	int deleteById(int id);
 	int deleteAll();
-	
+	City selectById(int id);
 }

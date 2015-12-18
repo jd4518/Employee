@@ -34,6 +34,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 			$scope.city = reason.data;
 		});
 		
+		
 	};
 	
 });
