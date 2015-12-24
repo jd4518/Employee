@@ -16,8 +16,9 @@ public class CityModifyService {
 	
 	@Transactional
 	public int modify(City city) {
-		cityDao.update(city);
 		
+		cityDao.update(city);
+
 		return city.getId();
 	}
 }

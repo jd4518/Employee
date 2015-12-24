@@ -40,6 +40,15 @@
 		   and outer.r &lt;= #{lastItem}
     </select>
     
+    <select id="selectById" parameterType="int" resultType="com.hybrid.model.City">
+        select id,
+			   name,
+			   countrycode,
+			   district,
+			   population
+		  from city
+		 where id = #{id}
+    </select>
     
     <select id="selectByCountryCode" parameterType="string" resultType="com.hybrid.model.City">
         select id,
@@ -95,11 +104,11 @@
     </insert>
     
     <update id="update" parameterType="com.hybrid.model.City">
-        update city 
-           set name        = #{name},
-               countryCode = #{countryCode},
-               district    = #{district},
-               population  = #{population}
+        update city
+           set name			= #{name},
+           	   countryCode	= #{countryCode},
+           	   district		= #{district},
+           	   population	= #{population}
          where id = #{id}
     </update>
     
@@ -111,15 +120,6 @@
         delete from city
     </delete>
     
-     <select id="selectById" parameterType="int" resultType="com.hybrid.model.City">
-        select id,
-			   name,
-			   countrycode,
-			   district,
-			   population
-		  from city
-		 where id = #{id}
-    </select>
     
     
     

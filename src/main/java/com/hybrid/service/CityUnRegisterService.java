@@ -15,6 +15,7 @@ public class CityUnRegisterService {
 	
 	@Transactional
 	public int unregist(int id) {
+		
 		cityDao.deleteById(id);
 		
 		return id;

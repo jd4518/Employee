@@ -16,6 +16,7 @@ public class CityDetailService {
 	
 	@Transactional
 	public City detail(int id) {
+		
 		City city = cityDao.selectById(id);
 		
 		return city;

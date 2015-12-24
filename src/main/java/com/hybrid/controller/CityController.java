@@ -1,5 +1,7 @@
 package com.hybrid.controller;
 
+import java.rmi.activation.ActivationGroupDesc.CommandEnvironment;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,7 @@ public class CityController {
 	CityDetailService cityDetailService;
 	
 	@Autowired
-	CityModifyService cityModifyService;
+	CityModifyService cityModifyService;	
 	
 	@Autowired
 	CityUnRegisterService cityUnRegisterService;
@@ -122,7 +124,7 @@ public class CityController {
 	@ResponseBody
 	public City getCityItem(@PathVariable int id) {
 		log.info("getCityItem()... id=" + id);
-	
+		
 		City city = cityDetailService.detail(id);
 		
 		return city;
@@ -173,7 +175,6 @@ public class CityController {
 		
 		cityModifyService.modify(command.getCity());
 		
-		
 		return command;
 	}
 	/*
@@ -186,8 +187,6 @@ public class CityController {
 		log.info("deleteCity()... id = " + id);
 		
 		cityUnRegisterService.unregist(id);
-		
-		
 	}
 	
 	

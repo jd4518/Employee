@@ -20,8 +20,8 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	
 	$scope.city = {};
 	
-	$scope.submit = function(){
-		var ajax = $http.post(URL.POST_ITEM_APPEND,{
+	$scope.submit = function() {
+		var ajax = $http.post(URL.POST_ITEM_APPEND, {
 			name : $scope.city.name,
 			district : $scope.city.district,
 			countryCode : $scope.city.countryCode,
@@ -31,9 +31,10 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		ajax.then(function(value) {
 			$location.path("/list");
 		}, function(reason) {
+			console.dir(reason)
 			$scope.city = reason.data;
-		});
-		
+		})
+
 		
 	};
 	

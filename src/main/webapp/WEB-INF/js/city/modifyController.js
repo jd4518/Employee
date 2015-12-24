@@ -29,10 +29,10 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 		alert("error...");
 	});
 	
-	$scope.submit = function(){
-		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE+$scope.city.id,{
+	$scope.submit = function() {
+		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.city.id, {
 			id 			: $scope.city.id,
-			name		: $scope.city.name,
+			name 		: $scope.city.name,
 			countryCode : $scope.city.countryCode,
 			district 	: $scope.city.district,
 			population 	: $scope.city.population
@@ -46,5 +46,6 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 		});
 		
 	};
+	
 	
 });
